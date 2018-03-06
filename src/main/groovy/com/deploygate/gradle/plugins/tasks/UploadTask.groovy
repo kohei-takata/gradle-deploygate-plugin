@@ -3,7 +3,6 @@ package com.deploygate.gradle.plugins.tasks
 import com.deploygate.gradle.plugins.entities.DeployTarget
 import com.deploygate.gradle.plugins.utils.BrowserUtils
 import com.deploygate.gradle.plugins.utils.HTTPBuilderFactory
-import com.deploygate.gradle.plugins.utils.UrlUtils
 import groovyx.net.http.ContentType
 import groovyx.net.http.HttpResponseDecorator
 import groovyx.net.http.Method
@@ -52,6 +51,7 @@ class UploadTask extends DefaultTask {
             sourceFile = sourceFile ?: (envFile ? project.file(envFile) : null)
             message = message ?: System.getenv('DEPLOYGATE_MESSAGE')
             distributionKey = distributionKey ?: System.getenv('DEPLOYGATE_DISTRIBUTION_KEY')
+            distributionName = distributionName ?: System.getenv('DEPLOYGATE_DISTRIBUTION_NAME')
             releaseNote = releaseNote ?: System.getenv('DEPLOYGATE_RELEASE_NOTE')
             visibility = visibility ?: System.getenv('DEPLOYGATE_VISIBILITY')
         }

@@ -8,6 +8,7 @@ class DeployTarget implements Named {
     File sourceFile
     String message
     String distributionKey
+    String distributionName
     String releaseNote
     String visibility
     boolean noAssemble
@@ -25,6 +26,9 @@ class DeployTarget implements Named {
         }
         if (distributionKey != null) {
             params.put("distribution_key", distributionKey)
+        }
+        if (distributionName != null) {
+            params.put("distribution_name", distributionName)
         }
         if (releaseNote != null) {
             params.put("release_note", releaseNote)
